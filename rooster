@@ -1,0 +1,30 @@
+#!/bin/bash
+
+if [ -d $1 ]; then
+  echo 'Voer een docentcode in'
+  exit 1
+fi
+
+
+if [ $1 = "hps" ]; then
+  export ROOSTER="https://roosters.xedule.nl/Attendee/ScheduleCurrent/31147?Code=HPS&attId=2&OreId=34"
+
+elif [ $1 = "mpn" ]; then
+  export ROOSTER="https://roosters.xedule.nl/Attendee/ScheduleCurrent/19816?Code=MPN&attId=2&OreId=34"
+
+elif [ $1 = "avk" ]; then
+  export ROOSTER="https://roosters.xedule.nl/Attendee/ScheduleCurrent/14419?Code=AVK&attId=2&OreId=34"
+
+elif [ $1 = "keb" ]; then
+  export ROOSTER="https://roosters.xedule.nl/Attendee/ScheduleCurrent/14269?Code=KEB&attId=2&OreId=34"
+
+elif [ $1 = "kdi" ]; then
+  export ROOSTER="https://roosters.xedule.nl/Attendee/ScheduleCurrent/59888?Code=KDI&attId=2&OreId=34"
+
+else
+    echo rooster $1 niet gevonden
+fi
+
+echo Opent rooster van $1
+xdg-open $ROOSTER
+exit 1
