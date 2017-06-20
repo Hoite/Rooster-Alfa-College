@@ -1,7 +1,7 @@
 # Rooster Alfa College
 Bash script voor het openen van Docentenroosters
 
-##Usage
+## Usage
 
 ./rooster [docentcode]
 
