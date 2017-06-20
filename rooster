@@ -21,6 +21,9 @@ elif [ $1 = "keb" ]; then
 elif [ $1 = "kdi" ]; then
   export ROOSTER="https://roosters.xedule.nl/Attendee/ScheduleCurrent/59888?Code=KDI&attId=2&OreId=34"
 
+elif [ $1 = "lam" ]; then
+  export ROOSTER="https://roosters.xedule.nl/Attendee/ScheduleCurrent/14328?Code=LAM&attId=2&OreId=34"
+
 else
     echo rooster $1 niet gevonden
 fi
