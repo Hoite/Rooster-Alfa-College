@@ -4,18 +4,18 @@ Bash script voor het openen van Docenten- en klassenroosters
 Hoite Prins - hj.prins@alfa-college.nl
 
 ## Installation
-
 ### Download
 
-'''Bash
+```bash
   git clone https://github.com/Hoite/Rooster-Alfa-College
-'''
+```
+
 ### Installation
 
-'''Bash
+```Bash
   cd rooster
   ln -s rooster /usr/bin/rooster
-'''
+```
 
 ## Usage
 
