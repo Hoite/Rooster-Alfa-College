@@ -11,9 +11,9 @@ if [ -a filelinks ]; then
 
   ## Zetten variabele docentcode en url
   # var Docent komt uit STDIN, gaat naar hoofdletters
-  export DOCENT=$(echo $1 | awk '{print toupper($0)}')
+  export ROOSTER=$(echo $1 | awk '{print toupper($0)}')
   # var URL vergelijkt input met tekstbestand, zet de bijbehorende url
-  export URL=$(cat filelinks  | grep -i $DOCENT | cut -f2 -d ",")
+  export URL=$(cat filelinks  | grep -i $ROOSTER | cut -f2 -d ",")
 
   ## Check of URL variabele geset is
   if [ -z $URL ]; then
@@ -21,7 +21,7 @@ if [ -a filelinks ]; then
   else
 
     ## Opent $URL in standaardbrowser
-    echo 'Opent rooster van' $DOCENT
+    echo 'Opent rooster van' $ROOSTER
     xdg-open $URL
     exit 1
   fi
