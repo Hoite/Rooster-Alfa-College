@@ -13,7 +13,7 @@ if [ -a filelinks ]; then
   # var Docent komt uit STDIN, gaat naar hoofdletters
   export ROOSTER=$(echo $1 | awk '{print toupper($0)}')
   # var URL vergelijkt input met tekstbestand, zet de bijbehorende url
-  export URL=$(cat filelinks  | grep -i $ROOSTER | cut -f2 -d ",")
+  export URL=$(cat filelinks  | grep -i ITB4-1C | head -1 | cut -f2 -d ",")
 
   ## Check of URL variabele geset is
   if [ -z $URL ]; then
