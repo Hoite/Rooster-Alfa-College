@@ -12,16 +12,21 @@ Hoite Prins - hj.prins@alfa-college.nl
 
 ### Installation
 
-```Bash
+```bash
   cd rooster
   ln -s rooster /usr/bin/rooster
 ```
 
 ## Usage
 
-./rooster [docentcode]
-bijvoorbeeld: ./rooster hps
+```bash
+./rooster [roostercode]
 
+examples:
+./rooster hps
+./rooster itb4-1d
+./rooster 
+```
 
 ## ToDo
 maken script voor aanmaken / verversen filelinks-bestand
