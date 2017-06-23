@@ -25,7 +25,7 @@ Hoite Prins - hj.prins@alfa-college.nl
 examples:
 ./rooster hps
 ./rooster itb4-1d
-./rooster 
+./rooster 6.22
 ```
 
 ## ToDo
