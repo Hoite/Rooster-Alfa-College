@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ##Check of bestand met URL's bestaat
 if [ -a filelinks ]; then
@@ -22,11 +22,19 @@ if [ -a filelinks ]; then
 
     ## Opent $URL in standaardbrowser
     echo 'Opent rooster van' $ROOSTER
-    xdg-open $URL
+    if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then 
+		xdg-open $URL
+	elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
+		start $URL
+	elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
+		start $URL
+	elif [ "$(uname)" == "Darwin" ]; then
+		open $URL
     exit 1
   fi
+fi
 
-else
+else 
   echo 'Bestand met urls niet gevonden'
 
 fi

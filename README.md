@@ -3,6 +3,10 @@ Bash script voor het openen van Docenten- en klassenroosters
 
 Hoite Prins - hj.prins@alfa-college.nl
 
+Bruikbaar gemaakt in elke OS: 
+
+Martijn Baalman - mk.baalman@student.alfa-college.nl
+
 ## Installation
 ### Download
 
@@ -13,8 +17,8 @@ Hoite Prins - hj.prins@alfa-college.nl
 ### Installation
 
 ```bash
-  cd rooster
-  ln -s rooster /usr/bin/rooster
+  cd Rooster-Alfa-College
+  ln -s rooster /usr/bin/rooster (Hoeft niet op Windows)
 ```
 
 ## Usage
