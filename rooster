@@ -1,40 +1,34 @@
 #!/usr/bin/env bash
 
-##Check of bestand met URL's bestaat
+# Kijk of het bestand 'filelinks' bestaat
 if [ -a filelinks ]; then
-  ## Check of input leeg is
-  if [ -d $1 ]; then
-    echo 'Voer een docentcode in'
-    echo './rooster hps'
-    exit 1
-  fi
+	# Uitleg indien geen input
+	if [ -d $1 ]; then
+		echo -e "\n\tVoer een rooster- of docentcode in
+				 \n\tVoorbeeld: ./rooster hps\n"
+		exit 1
+	fi
 
-  ## Zetten variabele docentcode en url
-  # var ROOSTER komt uit STDIN, gaat naar hoofdletters
-  export ROOSTER=$(echo $1 | awk '{print toupper($0)}')
-  # var URL vergelijkt input met tekstbestand, zet de bijbehorende url
-  export URL=$(cat filelinks  | grep -i $ROOSTER | head -1 | cut -f2 -d ",")
+	# Variables
+	REGEX="MINGW(32|64)\_NT"
+	 KLAS=$(cat filelinks | grep -i $1 | head -1 | cut -f1 -d ",")
+	  URL=$(cat filelinks | grep -i $1 | head -1 | cut -f2 -d ",")
 
-  ## Check of URL variabele geset is
-  if [ -z $URL ]; then
-    echo 'Roostercode niet gevonden'
-  else
-
-    ## Opent $URL in standaardbrowser
-    echo 'Opent rooster van' $ROOSTER
-    if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then 
-		xdg-open $URL
-	elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
-		start $URL
-	elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
-		start $URL
-	elif [ "$(uname)" == "Darwin" ]; then
-		open $URL
-    exit 1
-  fi
-fi
-
-else 
-  echo 'Bestand met urls niet gevonden'
-
+	# Kijken of het rooster is gevonden
+	if [ -z $URL ]; then
+		echo -e "\n\tRooster- of docentcode niet gevonden!\n"
+	else
+		# Alles gelukt: open het rooster
+		echo -e "\n\tHet rooster van ${KLAS} openen\n"
+		if [[ "$(expr substr $(uname -s) 1 5)" == "Linux" ]]; then
+			xdg-open $URL
+		elif [[ "$(expr substr $(uname -s) 1 10)" =~ $REGEX ]]; then
+			start $URL
+		elif [[ "$(uname)" == "Darwin" ]]; then
+			open $URL
+			exit 1
+		fi
+	fi
+else
+	echo -e "\n\tBestand met URLs niet gevonden!\n"
 fi
